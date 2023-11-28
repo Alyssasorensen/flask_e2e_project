@@ -38,7 +38,7 @@ nav a {
     text-align: center;
     padding: 14px 50px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 17px;
 }
 
 nav a:hover {
@@ -51,9 +51,6 @@ section {
     padding: 20px;
     background-color: #fff;
 }
-
-/* Increase font size for the paragraph */
-#HomeTabParagraph
 
 /* static/styles.css */
 #ContactPage
