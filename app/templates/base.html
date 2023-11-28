@@ -13,6 +13,7 @@
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
             <li><a href="/reproductive">Reproductive Health</a></li>
             <li><a href="/mental">Mental Well-Being</a></li>
             <li><a href="/fitness">Fitness</a></li>
@@ -20,6 +21,10 @@
         </ul>
     </nav>
 
+    {% if request.path == '/' %}
+        <p>This web service is dedicated to providing valuable information and resources related to women's health. Whether you are looking for insights on reproductive health, tips for mental well-being, or fitness routines tailored for women, we've got you covered. Explore our tabs to discover a wealth of knowledge and support for your health journey.</p>
+    {% endif %}
+    
     {% block content %}{% endblock %}
 
 </body>

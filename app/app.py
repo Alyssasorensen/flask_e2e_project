@@ -17,6 +17,10 @@ data = pd.DataFrame({
 def home():
     return render_template('base.html', data=data)
 
+@app.route('/about')
+def about():
+    return render_template('pages/about.html', data=data)
+
 @app.route('/reproductive')
 def reproductive():
     return render_template('pages/reproductive.html', data=data)
