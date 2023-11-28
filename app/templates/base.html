@@ -1,3 +1,4 @@
+<!-- templates/base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,7 @@
 </head>
 <body>
     <h1>Welcome to the Women's Health App</h1>
+
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
@@ -17,27 +19,9 @@
             <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
-    
+
     {% block content %}{% endblock %}
 
-    <section id="reproductive">
-        <h2>Reproductive Health</h2>
-        {{ data.loc[0, 'Information'] | safe }}
-    </section>
-
-    <section id="mental">
-        <h2>Mental Well-Being</h2>
-        {{ data.loc[1, 'Information'] | safe }}
-    </section>
-
-    <section id="fitness">
-        <h2>Fitness</h2>
-        {{ data.loc[2, 'Information'] | safe }}
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Include your contact information here.</p>
-    </section>
 </body>
 </html>
+

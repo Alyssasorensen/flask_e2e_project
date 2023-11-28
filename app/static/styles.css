@@ -1,8 +1,10 @@
+#EntireWebServiceCSS
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #f0f8ff;
 }
 
 h1 {
@@ -45,6 +47,7 @@ section {
 }
 
 /* static/styles.css */
+#ContactPage
 
 body {
     font-family: 'Arial', sans-serif;
@@ -100,7 +103,7 @@ button:hover {
 }
 
 /* static/styles.css */
-#Thankyousubmission
+#ThankYouSubmission
 
 body {
     font-family: 'Arial', sans-serif;
