@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
+import csv
+import os
 
 app = Flask(__name__)
 
@@ -33,6 +35,23 @@ def mental():
 def fitness():
     return render_template('pages/fitness.html', data=data)
 
+# @app.route('/data')
+# def data():
+#     return render_template('pages/data.html', data=data)
+
+def data():
+    file_name = 'NCHS-table-2023-11-29.csv'
+    file_path = os.path.join(os.path.dirname(__file__), 'data', file_name)
+
+    if not os.path.exists(file_path):
+        return f"File not found: {file_path}"
+
+    with open(file_path, 'r') as file:
+        csv_data = list(csv.reader(file))
+
+    return render_template('pages/data.html', data=csv_data)
+
+
 @app.route('/contact')
 def contact():
     return render_template('pages/contact.html')
@@ -53,4 +72,7 @@ def thank_you():
     return render_template('pages/thank_you.html', data=data)
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run(port=5001, debug=True)
+
+
+

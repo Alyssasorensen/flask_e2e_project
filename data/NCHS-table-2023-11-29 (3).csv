@@ -1,0 +1,15 @@
+"Percentage of regularly experiencing chronic pain for adults aged 18 and over (95% confidence intervals), United States, 2019—2022"
+"Year","Male","Female"
+" 2019"," 19.1"," 21.8"
+" 2020"," 20.4"," 23.0"
+" 2021"," 19.7"," 22.0"
+" 2022"," NA"," NA"
+
+"Standard errors for percentage of regularly experiencing chronic pain for adults aged 18 and over (95% confidence intervals), United States, 2019—2022"
+"Year","Male","Female"
+" 2019"," 18.3, 19.9"," 21.1, 22.6"
+" 2020"," 19.5, 21.3"," 22.2, 23.9"
+" 2021"," 18.9, 20.5"," 21.2, 22.9"
+" 2022"," *,*"," *,*"
+
+"Source: National Center for Health Statistics, National Health Interview Survey"

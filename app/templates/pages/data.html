@@ -1,0 +1,40 @@
+<!-- templates/pages/data.html
+{% extends 'base.html' %}
+
+{% block content %}
+    <section id="data">
+        <h2>Data</h2>
+        
+
+        <p>df = pd.read_csv(NCHS-table-2023-11-29.csv)</p>
+    </section>
+{% endblock %} -->
+
+
+<!-- templates/pages/data.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <section id="data">
+        <h2>Data</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Male</th>
+                    <th>Female</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr>
+                        {% for value in row %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}
