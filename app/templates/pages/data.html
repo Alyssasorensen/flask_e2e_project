@@ -1,40 +1,52 @@
-<!-- templates/pages/data.html
-{% extends 'base.html' %}
+{% extends "base.html" %} 
 
 {% block content %}
-    <section id="data">
-        <h2>Data</h2>
-        
 
-        <p>df = pd.read_csv(NCHS-table-2023-11-29.csv)</p>
-    </section>
-{% endblock %} -->
-
-
-<!-- templates/pages/data.html -->
-{% extends 'base.html' %}
-
-{% block content %}
-    <section id="data">
-        <h2>Data</h2>
-
-        <table>
-            <thead>
+<section>
+    <h2 class="text-xl mb-2 font-bold">Percentage of fair or poor health status for adults aged 18 and over, United States, 2019—2022</h2>
+    <table class="table-auto">
+        <thead>
+            <tr>
+                <th class="px-4 py-2 title-cell">Year</th>
+                <th class="px-4 py-2 title-cell">Male</th>
+                <th class="px-4 py-2 title-cell">Female</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in data %}
                 <tr>
-                    <th>Year</th>
-                    <th>Male</th>
-                    <th>Female</th>
+                    <td class="border px-4 py-2">{{ data["Year"] }}</td>
+                    <td class="border px-4 py-2">{{ data["Male"] }}</td>
+                    <td class="border px-4 py-2">{{ data["Female"] }}</td>
                 </tr>
-            </thead>
-            <tbody>
-                {% for row in data %}
-                    <tr>
-                        {% for value in row %}
-                            <td>{{ value }}</td>
-                        {% endfor %}
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </section>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+               
+<section>
+    <h2 class="text-xl mb-2 font-bold">Percentage of regularly having feelings of worry, nervousness, or anxiety for adults aged 18 and over, United States, 2019—2022</h2>
+    <table class="table-auto">
+        <thead>
+            <tr>
+                <td class="border px-4 py-2">Year</td>
+                <td class="border px-4 py-2">Male</td>
+                <td class="border px-4 py-2">Female</td>
+            </tr>
+        </thead>
+        </tbody>
+            {% for additional_data_row in additional_data %}
+                <tr>
+                    <td class="border px-4 py-2">{{ additional_data_row.Year }}</td>
+                    <td class="border px-4 py-2">{{ additional_data_row.Male }}</td>
+                    <td class="border px-4 py-2">{{ additional_data_row.Female }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
 {% endblock %}
+
+
+

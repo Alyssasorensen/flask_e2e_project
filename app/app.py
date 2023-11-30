@@ -5,7 +5,6 @@ import os
 
 app = Flask(__name__)
 
-# Load data using Pandas (Optional)
 data = pd.DataFrame({
     "Category": ["Reproductive Health", "Mental Well-being", "Fitness"],
     "Information": [
@@ -35,22 +34,26 @@ def mental():
 def fitness():
     return render_template('pages/fitness.html', data=data)
 
-# @app.route('/data')
-# def data():
-#     return render_template('pages/data.html', data=data)
+# Define your specific values
+data = [
+    {"Year": 2019, "Male": 14.9, "Female": 15.6},
+    {"Year": 2020, "Male": 13.2, "Female": 14.4},
+    {"Year": 2021, "Male": 13.2, "Female": 13.9},
+    {"Year": 2022, "Male": 13.8, "Female": 15.2},
+]
 
-def data():
-    file_name = 'NCHS-table-2023-11-29.csv'
-    file_path = os.path.join(os.path.dirname(__file__), 'data', file_name)
+# Define your specific values
+additional_data = [
+    {"Year": 2019, "Male": 8.4, "Female": 13.7},
+    {"Year": 2020, "Male": 8.1, "Female": 14.1},
+    {"Year": 2021, "Male": 8.4, "Female": 14.1},
+    {"Year": 2022, "Male": 9.7, "Female": 15.5},
+]
 
-    if not os.path.exists(file_path):
-        return f"File not found: {file_path}"
-
-    with open(file_path, 'r') as file:
-        csv_data = list(csv.reader(file))
-
-    return render_template('pages/data.html', data=csv_data)
-
+# df = pd.read_csv('https://raw.githubusercontent.com/Alyssasorensen/flask_e2e_project/main/data/NCHS-table-2023-11-29%20(2).csv')
+@app.route('/data')
+def data_route():
+    return render_template('pages/data.html', data=data, additional_data=additional_data)
 
 @app.route('/contact')
 def contact():
@@ -73,6 +76,3 @@ def thank_you():
 
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
-
-
-
