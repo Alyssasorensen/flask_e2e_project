@@ -46,7 +46,37 @@
     </table>
 </section>
 
+<section>
+    <h2 class="text-xl mb-2 font-bold">Women Age 40 and Older Who Report Having Had a Mammogram Within the Past Two Years by Race/Ethnicity</h2>
+    <table class="table-auto">
+        <thead>
+            <tr>
+                <th class="px-4 py-2">Location</th>
+                <th class="px-4 py-2">All Women</th>
+                <th class="px-4 py-2">Non-Hispanic White</th>
+                <th class="px-4 py-2">Non-Hispanic Black</th>
+                <th class="px-4 py-2">Hispanic</th>
+                <th class="px-4 py-2">Asian and Native Hawaiian or Pacific Islander</th>
+                <th class="px-4 py-2">American Indian/ Alaska Native</th>
+                <th class="px-4 py-2">Other</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in data.values %}
+                <tr>
+                    <td class="border px-4 py-2">{{ data[0] }}</td>
+                    <td class="border px-4 py-2">{{ data[1] }}</td>
+                    <td class="border px-4 py-2">{{ data[2] }}</td>
+                    <td class="border px-4 py-2">{{ data[3] }}</td>
+                    <td class="border px-4 py-2">{{ data[4] }}</td>
+                    <td class="border px-4 py-2">{{ data[5] }}</td>
+                    <td class="border px-4 py-2">{{ data[6] }}</td>
+                    <td class="border px-4 py-2">{{ data[7] }}</td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
 {% endblock %}
-
-
-
