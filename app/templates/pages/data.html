@@ -13,11 +13,11 @@
             </tr>
         </thead>
         <tbody>
-            {% for data in data %}
+            {% for row in first_data %}
                 <tr>
-                    <td class="border px-4 py-2">{{ data["Year"] }}</td>
-                    <td class="border px-4 py-2">{{ data["Male"] }}</td>
-                    <td class="border px-4 py-2">{{ data["Female"] }}</td>
+                    <td class="border px-4 py-2">{{ row["Year"] }}</td>
+                    <td class="border px-4 py-2">{{ row["Male"] }}</td>
+                    <td class="border px-4 py-2">{{ row["Female"] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -34,12 +34,12 @@
                 <td class="border px-4 py-2">Female</td>
             </tr>
         </thead>
-        </tbody>
-            {% for additional_data_row in additional_data %}
+        <tbody>
+            {% for row in additional_data %}
                 <tr>
-                    <td class="border px-4 py-2">{{ additional_data_row.Year }}</td>
-                    <td class="border px-4 py-2">{{ additional_data_row.Male }}</td>
-                    <td class="border px-4 py-2">{{ additional_data_row.Female }}</td>
+                    <td class="border px-4 py-2">{{ row.Year }}</td>
+                    <td class="border px-4 py-2">{{ row.Male }}</td>
+                    <td class="border px-4 py-2">{{ row.Female }}</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -47,6 +47,7 @@
 </section>
 
 <section>
+    
     <h2 class="text-xl mb-2 font-bold">Women Age 40 and Older Who Report Having Had a Mammogram Within the Past Two Years by Race/Ethnicity</h2>
     <table class="table-auto">
         <thead>
@@ -62,21 +63,20 @@
             </tr>
         </thead>
         <tbody>
-            {% for data in data.values %}
+            {% for row in sampled_data %}
                 <tr>
-                    <td class="border px-4 py-2">{{ data[0] }}</td>
-                    <td class="border px-4 py-2">{{ data[1] }}</td>
-                    <td class="border px-4 py-2">{{ data[2] }}</td>
-                    <td class="border px-4 py-2">{{ data[3] }}</td>
-                    <td class="border px-4 py-2">{{ data[4] }}</td>
-                    <td class="border px-4 py-2">{{ data[5] }}</td>
-                    <td class="border px-4 py-2">{{ data[6] }}</td>
-                    <td class="border px-4 py-2">{{ data[7] }}</td>
-
+                    <td class="border px-4 py-2">{{ row['Location'] }}</td>
+                    <td class="border px-4 py-2">{{ row['All Women'] }}</td>
+                    <td class="border px-4 py-2">{{ row['Non-Hispanic White'] }}</td>
+                    <td class="border px-4 py-2">{{ row['Non-Hispanic Black'] }}</td>
+                    <td class="border px-4 py-2">{{ row['Hispanic'] }}</td>
+                    <td class="border px-4 py-2">{{ row['Asian and Native Hawaiian or Pacific Islander'] }}</td>
+                    <td class="border px-4 py-2">{{ row['American Indian/ Alaska Native'] }}</td>
+                    <td class="border px-4 py-2">{{ row['Other'] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
 </section>
-
 {% endblock %}
+
