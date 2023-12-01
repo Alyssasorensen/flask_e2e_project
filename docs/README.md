@@ -4,6 +4,15 @@
 **This file contains all of my documentation and references all of my screenshots and videos.**
 
 ## **Web Service Created**
+The web service created is a comprehensive platform dedicated to women's health, developed using Flask, Python, HTML, and CSS. It features a user-friendly navigation bar with tabs for various sections, including Home, About, Reproductive Health, Mental Well-Being, Fitness, Data, and Contact.
+
+The "Home" and "About" tab explain the purpose for this platform and how it can help women's health. It also can be used as a learning platform to discover new resources. The "Reproductive Health," "Mental Well-Being," and "Fitness" tabs summarize important aspects of women's health.  
+
+Each tab leads to specific content pages offering valuable information related to the respective health category. Notably, the "Data" tab dynamically loads information from a CSV file and other datasets, allowing users to explore various datasets related to women's health.
+
+The "Contact" tab includes a form for users to submit their name, email, and a message. After submission, users are redirected to a "Thank You" page. The web service utilizes CSS, with a mention of Tailwind CSS for frontend styling.
+
+The deployment is intended for Google Cloud Shell, emphasizing a cloud-based hosting solution. Overall, the web service provides a rich and interactive experience for users seeking information and resources on women's health.
 
 ## **Technologies Used**
 
