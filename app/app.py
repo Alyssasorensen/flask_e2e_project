@@ -50,10 +50,10 @@ additional_data = [
     {"Year": 2022, "Male": 9.7, "Female": 15.5},
 ]
 
-df = pd.read_csv('https://raw.githubusercontent.com/Alyssasorensen/flask_e2e_project/main/data/raw_data%20(1).csv')
+df = pd.read_csv('https://raw.githubusercontent.com/Alyssasorensen/flask_e2e_project/main/data/raw_data%20_new.csv')
 @app.route('/data')
 def data_route():
-    return render_template('pages/data.html', data=data, additional_data=additional_data)
+    return render_template('pages/data.html', data=data)
 
 @app.route('/contact')
 def contact():
