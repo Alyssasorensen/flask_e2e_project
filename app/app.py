@@ -72,7 +72,7 @@ def thank_you():
 
 @app.route('/api/data', methods=['GET'])
 def api_data():
-    data = {"message": "Hello, this is your API data!"}
+    data = {"message": "Hello, welcome to the Women's Health App!"}
     return jsonify(data)
 
 if __name__ == '__main__':
