@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import pandas as pd
 import csv
 import os
@@ -69,6 +69,11 @@ def submit_contact():
 @app.route('/thank_you')
 def thank_you():
     return render_template('pages/thank_you.html', data=data)
+
+@app.route('/api/data', methods=['GET'])
+def api_data():
+    data = {"message": "Hello, this is your API data!"}
+    return jsonify(data)
 
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
