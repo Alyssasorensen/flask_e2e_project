@@ -73,6 +73,14 @@ def execute_query_to_dataframe(query: str, engine):
 tables = get_tables(db_engine)
 print("Tables in the database:", tables)
 
-sql_query = "SELECT * FROM health_statistics"  # Modify as per your table
+sql_query = "SELECT * FROM health_statistics" 
+df = execute_query_to_dataframe(sql_query, db_engine)
+print(df)
+
+sql_query = "SELECT * FROM additional_health_statistics"  
+df = execute_query_to_dataframe(sql_query, db_engine)
+print(df)
+
+sql_query = "SELECT * FROM location_health_statistics"  
 df = execute_query_to_dataframe(sql_query, db_engine)
 print(df)
