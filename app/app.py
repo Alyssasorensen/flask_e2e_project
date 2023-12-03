@@ -81,5 +81,8 @@ def api_data():
     data = {"message": "Hello, welcome to the Women's Health App!"}
     return jsonify(data)
 
+# if __name__ == '__main__':
+#     app.run(port=5001, debug=True)
+
 if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)

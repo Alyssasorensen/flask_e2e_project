@@ -18,10 +18,6 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 oauth = OAuth(app)
 
-@app.route('/')
-def index():
-    return render_template('base.html')
-
 @app.route('/google/')
 def google():
     CONF_URL = 'https://accounts.google.com/.well-known/openid-configuration'
@@ -53,13 +49,13 @@ def google_auth():
     session['user'] = user
     update_or_create_user(user)
     print(" Google User ", user)
-    return redirect('/base.html')
+    return redirect('/index.html')
 
-@app.route('/base/')
-def base():
+@app.route('/index/')
+def index():
     user = session.get('user')
     if user:
-        return render_template('base.html', user=user)
+        return render_template('index.html', user=user)
     else:
         return redirect('/')
 
