@@ -16,7 +16,7 @@ The deployment is intended for Google Cloud Shell, emphasizing a cloud-based hos
 
 ## **Technologies Used**
 
-For this Women's Health App, I used various technologies. 
+For this Women's Health App, I used various technologies: 
 
 **Version Control:**
 GitHub
@@ -54,6 +54,50 @@ Google Cloud Platform (GCP) or Azure for deploying the application to the cloud.
 This technology stack indicates a modern web development setup, integrating various tools and services to cover version control, web framework, database management, security, logging, containerization, and cloud deployment. The choice of technologies reflects a well-rounded approach to building and deploying web applications with a focus on scalability, security, and maintainability.
 
 ## **Steps to Run the Web Service if Someone Wanted to Run Locally or Deploy to the Cloud**
+
+**Run Locally**
+
+1. Clone the repository: 
+
+Clone the GitHub repository to your local machine. 
+
+2. Set Up Virtual Environment:
+
+Create a virtual environment and activate it.
+
+3. Install Dependencies:
+
+Install the required dependencies using pip.
+
+4. Configure Environment Variables:
+
+Create a .env file in the project root and set necessary environment variables like database connection details, API keys, etc.
+
+5. Run the Flask Application:
+
+Use "Python" and then follow with the name of your app.py file. 
+
+**Deploy to the Cloud**
+
+1. Create GCP Project:
+
+This can be done on Google Cloud Console. 
+
+2. Enable app engine.
+
+3. Configure Database: 
+
+For this web app, I am using MySQL, therefore I needed to setup the database and conenction details. 
+
+4. Set Environment Variables on GCP:
+
+In the GCP Console, navigate to your App Engine settings and set environment variables for the application.
+
+5. Deploy to the app engine.
+
+6. Access the Deployed Application: 
+
+Access through the provided URL. 
 
 ## **Template of the .env File Structure**
 DB_HOST=
