@@ -47,7 +47,7 @@ def error():
 ## create a db connection error 
 @app.route('/db-error')
 def db_error():
-    conn = create_engine(f'mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOSTNAME}/{DB_NAME}')
+    conn = create_engine(f'mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}')
     try:
         conn.connect()
     except Exception as e:
