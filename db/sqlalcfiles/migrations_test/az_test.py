@@ -8,10 +8,11 @@ pip install sqlalchemy alembic mysql-connector-python pymysql
 ### this file below could always be called db_schema.py or something similar
 
 from sqlalchemy import create_engine, inspect, Column, Integer, String, Date, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, declarative_base
 from sqlalchemy.ext.declarative import declarative_base
 import os
 from dotenv import load_dotenv
+from sqlalchemy import Column, Integer, String, ForeignKey
 
 # load_dotenv()
 
@@ -21,7 +22,7 @@ Base = declarative_base()
 
 # Define models
 
-class health_statistics(Base):
+class HealthStatistics(Base):
     __tablename__ = 'health_statistics'
 
     id = Column(Integer, primary_key=True)
@@ -29,9 +30,9 @@ class health_statistics(Base):
     male = Column(String(4), nullable=False)
     female = Column(String(4), nullable=False)
 
-records = relationship('additional_health_statistics', back_populates='health_statistics')
+    records = relationship('AdditionalHealthStatistics', back_populates='health_statistics')
 
-class additional_health_statistics(Base):
+class AdditionalHealthStatistics(Base):
     __tablename__ = 'additional_health_statistics'
 
     id = Column(Integer, primary_key=True)
@@ -39,20 +40,20 @@ class additional_health_statistics(Base):
     male = Column(String(4), nullable=False)
     female = Column(String(4), nullable=False)
 
-records = relationship('location_health_statistics', back_populates='additional_health_statistics')
+    records = relationship('LocationHealthStatistics', back_populates='additional_health_statistics')
 
-class location_health_statistics(Base):
+class LocationHealthStatistics(Base):
     __tablename__ = 'location_health_statistics'
     id = Column(Integer, primary_key=True)
-    all_women = Column(Integer, ForeignKey('all_women'), nullable=False)
-    non_hispanic_white = Column(Integer(10), nullable=False)
-    non_hispanic_black = Column(Integer(10), nullable=False)
-    hispanic = Column(Integer(10), nullable=False)
-    asian_and_pacific_islander = Column(Integer(10), nullable=False)
-    american_indian_alaska_native = Column(Integer(10), nullable=False)
-    other = Column(Integer(10), nullable=False)
+    all_women = Column(Integer, ForeignKey('health_statistics.id'), nullable=False)
+    non_hispanic_white = Column(Integer, nullable=False)
+    non_hispanic_black = Column(Integer, nullable=False)
+    hispanic = Column(Integer, nullable=False)
+    asian_and_pacific_islander = Column(Integer, nullable=False)
+    american_indian_alaska_native = Column(Integer, nullable=False)
+    other = Column(Integer, nullable=False)
 
-records = relationship('health_statistics', back_populates='location_health_statistics')
+    records = relationship('HealthStatistics', back_populates='location_health_statistics')
 
 ### Part 2 - initial sqlalchemy-engine to connect to db:
 
