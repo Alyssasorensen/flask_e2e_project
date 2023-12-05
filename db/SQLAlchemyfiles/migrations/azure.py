@@ -44,12 +44,15 @@ records = relationship('location_health_statistics', back_populates='additional_
 class location_health_statistics(Base):
     __tablename__ = 'location_health_statistics'
     id = Column(Integer, primary_key=True)
-    year = Column(Integer(10), nullable=False)
-    male = Column(Integer(10), nullable=False)
-    female = Column(Integer(10), nullable=False)
+    all_women = Column(Integer, ForeignKey('all_women'), nullable=False)
+    non_hispanic_white = Column(Integer(10), nullable=False)
+    non_hispanic_black = Column(Integer(10), nullable=False)
+    hispanic = Column(Integer(10), nullable=False)
+    asian_and_pacific_islander = Column(Integer(10), nullable=False)
+    american_indian_alaska_native = Column(Integer(10), nullable=False)
+    other = Column(Integer(10), nullable=False)
 
 records = relationship('health_statistics', back_populates='location_health_statistics')
-
 
 ### Part 2 - initial sqlalchemy-engine to connect to db:
 
