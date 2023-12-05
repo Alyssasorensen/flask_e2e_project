@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 # load_dotenv()
 
-DB_HOST = os.getenv("DB_HOST")
+databaseURL = os.getenv("DATABASE_URL")
 
 Base = declarative_base()
 
@@ -62,7 +62,7 @@ engine = create_engine("mysql+pymysql://alyssaflask3:Admin-2023-1@alyssa-final-a
 
 
 DATABASE_URL = "mysql+mysqlconnector://alyssaflask3:Admin-2023-1@alyssa-final-app.mysql.database.azure.com/webapp"
-engine = create_engine(DB_HOST)
+engine = create_engine(DATABASE_URL)
 
 ## Test connection
 
