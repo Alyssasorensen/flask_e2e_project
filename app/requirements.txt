@@ -6,3 +6,4 @@ faker
 sqlalchemy
 authlib
 requests
+flask-sqlalchemy

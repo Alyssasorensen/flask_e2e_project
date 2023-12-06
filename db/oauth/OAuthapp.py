@@ -39,7 +39,7 @@ def google():
     session['nonce'] = generate_token()
     ##, note: if running in google shell, need to override redirect_uri 
     ## to the external web address of the shell, e.g.,
-    redirect_uri = 'https://5000-cs-1039191608401-default.cs-us-east1-pkhd.cloudshell.dev/google/auth/'
+    redirect_uri = 'https://e2ealyssa.azurewebsites.net/google/auth/'
     return oauth.google.authorize_redirect(redirect_uri, nonce=session['nonce'])
 
 @app.route('/google/auth/')
@@ -49,13 +49,13 @@ def google_auth():
     session['user'] = user
     update_or_create_user(user)
     print(" Google User ", user)
-    return redirect('/index.html')
+    return redirect('/base.html')
 
-@app.route('/index/')
+@app.route('/base/')
 def index():
     user = session.get('user')
     if user:
-        return render_template('index.html', user=user)
+        return render_template('base.html', user=user)
     else:
         return redirect('/')
 
