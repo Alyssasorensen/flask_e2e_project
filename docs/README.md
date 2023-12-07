@@ -55,7 +55,7 @@ This technology stack indicates a modern web development setup, integrating vari
 
 ## **Steps to Run the Web Service if Someone Wanted to Run Locally or Deploy to the Cloud**
 
-**Run Locally**
+### **Run Locally**
 
 1. Clone the repository: 
 
@@ -77,27 +77,49 @@ Create a .env file in the project root and set necessary environment variables l
 
 Use "Python" and then follow with the name of your app.py file. 
 
-**Deploy to the Cloud**
+### **Deploy to the Cloud**
 
-1. Create GCP Project:
+ Below is a simplified example of how you might deploy a simple web application using Flask (a web framework for Python) to Microsoft Azure.
 
-This can be done on Google Cloud Console. 
+**1. Develop a web application:**
 
-2. Enable app engine.
+1a. Create a simple Flask web application. 
 
-3. Configure Database: 
+**2. Set Up Azure Resources:**
 
-For this web app, I am using MySQL, therefore I needed to setup the database and conenction details. 
+2a. Create an Azure account. 
 
-4. Set Environment Variables on GCP:
+2b. Install Azure CLI. 
 
-In the GCP Console, navigate to your App Engine settings and set environment variables for the application.
+2c. Login to Azure. Open a terminal and run: 
 
-5. Deploy to the app engine.
+```
+az login
+```
 
-6. Access the Deployed Application: 
+**3. Create a resource group:**
 
-Access through the provided URL. 
+```
+az group create --name YourResourceGroupName --location YourLocation
+```
+
+**4. Deploy the webapp to Azure App Service:**
+
+4a. Install required packages:
+
+```
+pip install Flask
+```
+
+4b. Deploy to Azure App Service:
+
+```
+az webapp up --resource-group YourResourceGroupName --name YourAppName --sku F1
+```
+
+**5. Access the deployed application:** 
+
+After the deployment is complete, you can access your deployed web app using the provided URL. You can find the URL in the output of the "az webapp up" command.
 
 ## **Template of the .env File Structure**
 DB_HOST=
