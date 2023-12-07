@@ -16,9 +16,12 @@ load_dotenv()
 GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
 GOOGLE_CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
 
+print(GOOGLE_CLIENT_ID)
+print(GOOGLE_CLIENT_SECRET)
+
 app = Flask(__name__)
 
-app.secret_key = os.urandom(12)
+app.secret_key = 's547efrhkls'
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
@@ -61,13 +64,13 @@ def google_auth():
     session['user'] = user
     update_or_create_user(user)
     print(" Google User ", user)
-    return redirect('dashboard')
+    return redirect('/dashboard')
 
 @app.route('/dashboard/')
 def dashboard():
     user = session.get('user')
     if user:
-        return render_template('dashboard.html', user=user)
+        return render_template('pages/dashboard.html', user=user)
     else:
         return redirect('/')
 
@@ -139,7 +142,15 @@ def thank_you():
 
 @app.route('/api/data', methods=['GET'])
 def api_data():
-    data = {"message": "Hello, welcome to the Women's Health App!"}
+    additional_data = [
+        {"Year": 2019, "Male": 8.4, "Female": 13.7},
+        {"Year": 2020, "Male": 8.1, "Female": 14.1},
+        {"Year": 2021, "Male": 8.4, "Female": 14.1},
+        {"Year": 2022, "Male": 9.7, "Female": 15.5},
+    ]
+
+    data = {"message": "Hello, welcome to the Women's Health App! Here is some example data from the web app. The data represents the percentage of regularly having feelings of worry, nervousness, or anxiety for adults aged 18 and over, United States, 2019-2022", "data": additional_data}
+
     return jsonify(data)
 
 # if __name__ == '__main__':
