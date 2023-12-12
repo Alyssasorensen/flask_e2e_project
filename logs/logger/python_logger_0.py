@@ -8,8 +8,6 @@ import os
 load_dotenv('/home/alyssa_sorensen/flask_e2e_project/.env')
 
 DB_HOST = os.getenv("DB_HOST")
-if DB_HOST is None:
-    raise ValueError("DB_HOST is not set in the environment")
 DB_DATABASE = os.getenv("DB_DATABASE")
 DB_USERNAME = os.getenv("DB_USERNAME")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
