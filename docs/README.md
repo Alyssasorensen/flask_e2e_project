@@ -53,29 +53,49 @@ Google Cloud Platform (GCP) or Azure for deploying the application to the cloud.
 
 This technology stack indicates a modern web development setup, integrating various tools and services to cover version control, web framework, database management, security, logging, containerization, and cloud deployment. The choice of technologies reflects a well-rounded approach to building and deploying web applications with a focus on scalability, security, and maintainability.
 
-## **Steps to Run the Web Service if Someone Wanted to Run Locally or Deploy to the Cloud**
+## **Steps to Run the Web Service if Someone Wanted to Run Locally Without Docker, Locally With Docker, or Deploy to the Cloud**
 
 ### **Run Locally**
 
-1. Clone the repository: 
+**1. Clone the repository:**
 
-Clone the GitHub repository to your local machine. 
+Clone the GitHub repository to the local machine. 
 
-2. Set Up Virtual Environment:
+**2. Set Up virtual environment:**
 
 Create a virtual environment and activate it.
 
-3. Install Dependencies:
+**3. Install dependencies:**
 
 Install the required dependencies using pip.
 
-4. Configure Environment Variables:
+**4. Configure environment variables:**
 
 Create a .env file in the project root and set necessary environment variables like database connection details, API keys, etc.
 
-5. Run the Flask Application:
+**5. Run the Flask application:**
 
-Use "Python" and then follow with the name of your app.py file. 
+Use "Python" and then follow with the name of the app.py file. 
+
+### **Locally with Docker**
+
+**1. Build Docker Image:**
+
+1a. Build the Docker image using the provided "Dockerfile." Run this command in the same directory as the "Dockerfile":
+
+```
+docker build -t finalwebapp .
+```
+
+**2. Run Docker container:**
+
+2a. Run the Docker container:
+
+```
+docker run -p 5002:5002 finalwebapp
+```
+
+This maps port 5002 on the host to port 5002 in the Docker container.
 
 ### **Deploy to the Cloud**
 
@@ -119,7 +139,7 @@ az webapp up --resource-group YourResourceGroupName --name YourAppName --sku F1
 
 **5. Access the deployed application:** 
 
-After the deployment is complete, you can access your deployed web app using the provided URL. You can find the URL in the output of the "az webapp up" command.
+After the deployment is complete, you can access the deployed web app using the provided URL. You can find the URL in the output of the "az webapp up" command.
 
 ## **Template of the .env File Structure**
 DB_HOST=
