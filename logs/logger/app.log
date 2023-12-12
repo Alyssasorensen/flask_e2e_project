@@ -46,3 +46,4 @@ INFO:werkzeug: * Restarting with watchdog (inotify)
 WARNING:dotenv.main:Python-dotenv could not parse statement starting at line 1
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 125-198-749
+WARNING:dotenv.main:Python-dotenv could not parse statement starting at line 1

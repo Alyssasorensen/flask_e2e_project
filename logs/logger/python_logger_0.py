@@ -8,6 +8,8 @@ import os
 load_dotenv('/home/alyssa_sorensen/flask_e2e_project/.env')
 
 DB_HOST = os.getenv("DB_HOST")
+if DB_HOST is None:
+    raise ValueError("DB_HOST is not set in the environment")
 DB_DATABASE = os.getenv("DB_DATABASE")
 DB_USERNAME = os.getenv("DB_USERNAME")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
@@ -18,7 +20,7 @@ DB_CHARSET = os.getenv("DB_CHARSET", "utf8mb4")
 print(f'DB_HOST: {DB_HOST}, DB_DATABASE: {DB_DATABASE}, DB_USERNAME: {DB_USERNAME}, DB_PASSWORD: {DB_PASSWORD}, DB_NAME: {DB_NAME}, DB_PORT: {DB_PORT}, DB_CHARSET: {DB_CHARSET}')
 
 sentry_sdk.init(
-    dsn="https://43f97c573c5936bb4a5f59b99f1a9a74@o4506300835692547.ingest.sentry.io/4506334948818944",
+    dsn="https://f74c704ba3c87b4800946c82134d8feb@o4506300835692547.ingest.sentry.io/4506380509708288",
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
     traces_sample_rate=1.0,
@@ -51,8 +53,9 @@ def db_error():
     try:
         conn.connect()
     except Exception as e:
-        raise Exception(f'Error connecting to the database: {e}')
-
+        logging.error(f'Error connecting to the database: {e}')
+        sentry_sdk.capture_exception(e)
+        return render_template('db_error.html', error_message=str(e)), 500
 
 if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+    app.run(port=5002, debug=True)

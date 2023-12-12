@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, session
 import pandas as pd
 import csv
-from sqlalchemy import create_engine, inspect
+from sqlalchemy import create_engine, inspect, text
 from pandas import read_sql
 import os
 from dotenv import load_dotenv
@@ -10,6 +10,28 @@ from authlib.integrations.flask_client import OAuth
 from authlib.common.security import generate_token
 from oauth.db_functions import update_or_create_user
 from flask_session import Session
+import sentry_sdk
+
+app = Flask(__name__)
+
+DB_HOST = os.getenv("DB_HOST")
+DB_DATABASE = os.getenv("DB_DATABASE")
+DB_USERNAME = os.getenv("DB_USERNAME")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_NAME = os.getenv("DB_NAME")
+DB_PORT = int(os.getenv("DB_PORT", "3306"))
+DB_CHARSET = os.getenv("DB_CHARSET", "utf8mb4")
+
+sentry_sdk.init(
+    dsn="https://29d775fba6696385edf06b5eb70c6bee@o4506300835692547.ingest.sentry.io/4506380652183552",
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    traces_sample_rate=1.0,
+    # Set profiles_sample_rate to 1.0 to profile 100%
+    # of sampled transactions.
+    # We recommend adjusting this value in production.
+    profiles_sample_rate=1.0,
+)
 
 load_dotenv()
 
@@ -140,6 +162,20 @@ def submit_contact():
 def thank_you():
     return render_template('pages/thank_you.html', data=data)
 
+## create a route that throws an error
+@app.route('/error')
+def error():
+    raise Exception('This is a test error for Sentry Testing')
+
+## create a db connection error 
+@app.route('/db-error')
+def db_error():
+    conn = create_engine(f'mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}')
+    try:
+        conn.connect()
+    except Exception as e:
+        raise Exception(f'Error connecting to the database: {e}')
+
 @app.route('/api/data', methods=['GET'])
 def api_data():
     additional_data = [
@@ -157,7 +193,7 @@ def api_data():
 #     app.run(port=5001, debug=True)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5002)
+    app.run(debug=True, host='0.0.0.0')
 
 # if __name__ == '__main__':
 #     app.run(
