@@ -99,7 +99,7 @@ This maps port 5002 on the host to port 5002 in the Docker container.
 
 ### **Deploy to the Cloud**
 
- Below is a simplified example of how you might deploy a simple web application using Flask (a web framework for Python) to Microsoft Azure.
+ Below is a simplified example of how you might deploy the web application using Flask (a web framework for Python) to Microsoft Azure.
 
 **1. Develop a web application:**
 
@@ -120,7 +120,7 @@ az login
 **3. Create a resource group:**
 
 ```
-az group create --name YourResourceGroupName --location YourLocation
+az group create --name alyssafinal-1rg --location eastus
 ```
 
 **4. Deploy the webapp to Azure App Service:**
@@ -134,7 +134,7 @@ pip install Flask
 4b. Deploy to Azure App Service:
 
 ```
-az webapp up --resource-group YourResourceGroupName --name YourAppName --sku F1
+az webapp up --resource-group alyssafinal-1rg --name e2ealyssa --sku F1
 ```
 
 **5. Access the deployed application:** 
@@ -142,6 +142,7 @@ az webapp up --resource-group YourResourceGroupName --name YourAppName --sku F1
 After the deployment is complete, you can access the deployed web app using the provided URL. You can find the URL in the output of the "az webapp up" command.
 
 ## **Template of the .env File Structure**
+
 DB_HOST=
 
 DB_DATABASE=
@@ -155,3 +156,8 @@ DB_NAME=
 DB_PORT=
 
 DB_CHARSET=
+
+GOOGLE_CLIENT_ID=
+
+GOOGLE_CLIENT_SECRET=
+
