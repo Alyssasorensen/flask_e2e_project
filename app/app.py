@@ -9,7 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 from authlib.integrations.flask_client import OAuth
 from authlib.common.security import generate_token
 from oauth.db_functions import update_or_create_user
-# from flask_session import Session
+from flask_session import Session
 
 load_dotenv()
 
@@ -157,10 +157,11 @@ def api_data():
 #     app.run(port=5001, debug=True)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5002)
 
 # if __name__ == '__main__':
 #     app.run(
 #         debug=True, 
 #         port=5000
 #     )
+

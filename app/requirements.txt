@@ -1,5 +1,7 @@
-Flask==1.1.2
-Flask-Session==0.4.0
+flask
+Flask-Session
+Jinja2
+Werkzeug
 python-dotenv
 pandas 
 gunicorn
